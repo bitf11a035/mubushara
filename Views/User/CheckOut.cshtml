@@ -1,0 +1,64 @@
+ @{ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_LayoutLogout.cshtml";
+}
+@section tab{
+ <div id="main_content"> 
+   
+            <div id="menu_tab">
+            <div class="left_menu_corner"></div>
+                    <ul class="menu">
+                         <li><a href="/User/Index" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/User/Index" class="nav2 style4">Products</a></li>
+                       
+                         <li><a href="/Account/Logout" class="nav7 style4">Logout</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+            </div><!-- end of menu tab -->
+    }
+            
+            <div>
+               
+<h1>Place Your Order</h1>
+<form action="/User/DoneShopping" method="post">
+     <table>
+         <tr>
+    <th width="153" height="50" scope="row">      <h3>Product Name </h3></th>
+    <td  width="252" height="50" >@ViewBag.ProdName</td>
+    <td  width="81" height="50" >&nbsp;</td>
+  </tr>  
+         <tr>
+    <th width="153" height="50" scope="row">      <h3>Quantity </h3></th>
+    <td  width="252" height="50" >@ViewBag.ProdQuantity</td>
+    <td  width="81" height="50" >&nbsp;</td>
+  </tr>  
+         <tr>
+    <th width="153" height="50" scope="row">      <h3>Total Amount </h3></th>
+    <td  width="252" height="50" >@ViewBag.ProdAmount</td>
+    <td  width="81" height="50" >&nbsp;</td>
+  </tr>  
+<tr>
+    <th width="153" height="50" scope="row">      <h3>Email</h3></th>
+    <td  width="252" height="50" ><input type="text" name="email" id="email" /></td>
+    <td  width="81" height="50" >&nbsp;</td>
+  </tr>
+  <tr>
+    <th width="153" height="50" scope="row">      <h3>Shipping Address</h3></th>
+    <td width="252" height="50" ><input type="text" name="address" id="address" /></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+  <tr>
+    <th width="153" height="50" scope="row">      <h3>Acoount No</h3></th>
+    <td width="252" height="50" ><input type="text" name="account" id="account" /></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+           
+ <td><input type="submit" name="done" value="Proceed" /></td>
+</table> 
+   
+    </form>
+    
+</div>
+<br />

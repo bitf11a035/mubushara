@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutLogout.cshtml";
+}
+@section tab{
+ <div id="main_content"> 
+   
+            <div id="menu_tab">
+            <div class="left_menu_corner"></div>
+                    <ul class="menu">
+                         <li><a href="/User/Index" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/User/Index" class="nav2 style4">Products</a></li>
+                       
+                         <li><a href="/Account/Logout" class="nav4 style4">Logout</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+            </div><!-- end of menu tab -->
+    }
+      @section left
+     {
+         <div class="left_content">
+    <div class="title_box">Categories</div>
+    
+        <ul class="left_menu">
+        <li class="even"><a href="/User/Laptops">Laptop</a></li>
+         <li class="odd"><a href="/User/WebCam">Webcam</a></li>
+         
+         <li class="even"><a href="/User/Mobile">Mobile Phones</a></li>
+        </ul> 
+        
+   
+     }       
+            
+<h1> Congrats! Your Order Placed Successfully</h1>
+             <div>
+ &nbsp &nbsp &nbsp &nbsp<b>@Html.ActionLink("Continue Shopping", "Index")</b>
+</div>
+
+              @section cartTab{
+        <div class="right_content">
+   		<div class="shopping_cart">
+        	<div class="cart_title style5">Shopping cart</div>
+            
+            <div class="cart_details">
+            <h2>View Cart</h2>
+                 <br />
+           @* <span class="border_cart"></span>
+            Total: <span class="price">350$</span>*@
+           </div>
+            
+            <div class="cart_icon"><a href="/ShoppingCart/Index" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="~/images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+        
+        </div>
+}
+
+  

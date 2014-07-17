@@ -1,0 +1,158 @@
+﻿@model NewViews.ViewModels.ShoppingCartViewModel
+ @{
+ViewBag.Title = "Shopping Cart";
+Layout = "~/Views/Shared/_LayoutLogout.cshtml";
+}
+<div>
+    @section tab{
+ <div id="main_content"> 
+   
+            <div id="menu_tab">
+            <div class="left_menu_corner"></div>
+                    <ul class="menu">
+                         <li><a href="/User/Index" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/User/Index" class="nav2 style4">Products</a></li>
+                       
+                         <li><a href="/Account/Logout" class="nav4 style4">Logout</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+            </div><!-- end of menu tab -->
+    }
+      @section left
+     {
+         <div class="left_content">
+    <div class="title_box">Categories</div>
+    
+        <ul class="left_menu">
+        <li class="even"><a href="/User/Laptops">Laptop</a></li>
+         <li class="odd"><a href="/User/WebCam">Webcam</a></li>
+         
+         <li class="even"><a href="/User/Mobile">Mobile Phones</a></li>
+        </ul> 
+        
+   
+     }       
+@*<script src="~/Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+// Document.ready -> link up remove event handler
+$(".RemoveLink").click(function () 
+{
+// Get the id from the link
+var recordToDelete = $(this).attr("data-id");
+if (recordToDelete != '')
+{
+// Perform the ajax post
+$.post("~/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
+function (data)
+{
+// Successful requests get here
+// Update the page elements
+    if (data.ItemCount == 0)
+    {
+$('#row-' + data.DeleteId).fadeOut('slow');
+} else {
+$('#item-count-' + data.DeleteId).text(data.ItemCount);
+}
+$('#cart-total').text(data.CartTotal);
+$('#update-message').text(data.Message);
+$('#cart-status').text('Cart (' + data.CartCount + ')');
+});
+}
+});
+});
+function handleUpdate() {
+// Load and deserialize the returned JSON data
+var json = context.get_data();
+var data = Sys.Serialization.JavaScriptSerializer.deserialize(json);
+// Update the page elements
+if (data.ItemCount == 0) {
+$('#row-' + data.DeleteId).fadeOut('slow');
+} else {
+$('#item-count-' + data.DeleteId).text(data.ItemCount);
+}
+$('#cart-total').text(data.CartTotal);
+$('#update-message').text(data.Message);
+$('#cart-status').text('Cart (' + data.CartCount + ')');
+}
+</script>*@
+<div id="update-message">
+</div>
+<table>
+<tr>
+<th>
+<h3>ProductName</h3>
+</th>
+     <td width="81" height="50" >&nbsp;</td>
+<th>
+<h3>Price (each)</h3>
+</th>
+     <td width="81" height="50" >&nbsp;</td>
+<th>
+<h3>Quantity</h3>
+</th>
+<th> <td width="81" height="50" >&nbsp;</td></th>
+</tr>
+     @foreach (var item in Model.CartItems)
+{
+          <tr id="row-@item.RecordId">
+<td> <h3>@Html.ActionLink(item.Product.Product_Name, "Details", new { id = item.ProductId }, null)</h3>
+</td>
+              <td width="81" height="50" >&nbsp;</td>
+<td> <h3>@item.Product.Product_Price</h3>
+</td> 
+              <td width="81" height="50" >&nbsp;</td>
+              <td id="item-count-@item.RecordId"> <h3>@item.Count</h3>
+</td>
+              <td width="81" height="50" >&nbsp;</td>
+<td> @*<a href="#" class="RemoveLink" id="@item.RecordId">Remove from cart</a>*@
+    <h3>@Html.ActionLink("RemoveFromCart", "RemoveFromCart", new { id = item.RecordId }, null)</h3>
+</td>
+</tr>
+}
+<tr>
+<td>
+<h2>Total</h2>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td id="cart-total"> <h2>@Model.CartTotal</h2>
+</td>
+</tr>
+</table>
+<h3>
+<tr>
+    <th width="153" height="50" scope="row">      <h2>Review Your Cart </h2></th>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+</h3>
+<p class="button"> <h2>@Html.ActionLink("Checkout >>", "CheckOut")</h2>
+</p>
+
+    </div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    }
+      @section cartTab{
+        <div class="right_content">
+   		<div class="shopping_cart">
+        	<div class="cart_title style5">Shopping cart</div>
+            
+            <div class="cart_details">
+            <h2>View Cart</h2>
+                 <br />
+           @* <span class="border_cart"></span>
+            Total: <span class="price">350$</span>*@
+           </div>
+            
+            <div class="cart_icon"><a href="/ShoppingCart/Index" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="~/images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+        
+        </div>
+}
+
+  

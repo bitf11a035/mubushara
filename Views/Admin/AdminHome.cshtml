@@ -1,0 +1,63 @@
+@{
+    ViewBag.Title = "AdminHome";
+Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section tab 
+{
+    <ul class="menu">
+                         <li><a href="/Admin/AdminHome" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Admin/AddProduct" class="nav2 style4">Add Products</a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Admin/Gallery" class="nav2 style4">Gallery</a></li>                        
+                         <li class="divider"></li>        
+                         <li><a href="/Admin/ShowReviews" class="nav6 style4">View Comments</a></li>                        
+                         <li class="divider"></li>                         
+                         <li><a href="/Account/Logout" class="nav4 style4">Logout</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+
+}
+@section left
+{
+    <div class="left_content">
+    <div class="title_box">Selling Reports</div>
+    
+        <ul class="left_menu">
+        <li class="even"><a href="#">Today Report</a></li>
+         <li class="odd"><a href="#">Weekly Reports</a></li>
+        </ul> 
+}
+@model NewViews.Models.Product
+   <div class="center_content">
+       
+         <h1> Admin Panel</h1> 
+     
+       @foreach (var product in ViewBag.product)
+       {
+             <div class="prod_box">
+             <div class="top_prod_box"></div>
+              <div class="center_prod_box">            
+                 <div class="product_title"> @product.Product_Name</div>
+                 <div class="product_img"><img src="~/images/@product.Product_Image" alt="" title="" border="0" /></div>
+                 <div class="product_comapny"><h3>Company </h3> @product.Product_Company</div> 
+                 <div class="prod_price"><span class="reduce"></span> <span class="price"><h3>Price </h3> @product.Product_Price</span></div>                        
+                 <div class="prod_quantity"><span class="reduce"></span><h3>Quantity </h3> <span class="quantity">@product.Product_Quantity</span></div>                        
+                  <div class="prod_color"><span class="reduce"></span> <span class="color"> <h3>Color</h3>@product.Product_Color</span></div>                        
+        </div>
+          
+            <div class="bottom_prod_box"></div>             
+            <div class="prod_details_tab">
+            <b>&nbsp @Html.ActionLink("Edit","UpdateProduct",new{id=product.Product_Id})</b> &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp 
+            <b>@Html.ActionLink("Delete", "DeleteProduct", new {id=product.Product_Id })</b>
+        </div>
+   </div>
+       }
+</div>
+   
+   	   
+
+   
+   

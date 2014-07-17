@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "indexOut";
+    Layout = "~/Views/Shared/_LayoutLogout.cshtml";
+}
+<div>
+  @foreach (var product in ViewBag.product)
+       {
+            <div class="prod_box">
+        	<div class="top_prod_box"></div>
+            <div class="center_prod_box">            
+                 <div class="product_title"> @product.Product_Name</div>
+                 <div class="product_img"><img src="~/images/@product.Product_Image" alt="" title="" border="0" /></div>
+        </div>
+          
+            <div class="bottom_prod_box"></div>             
+            <div class="prod_details_tab">
+          
+            @Html.ActionLink("Details","details",new{id=product.Product_Id}) 
+            @Html.ActionLink("Add To Cart", "Login","Account")
+        </div>
+         </div>
+       }
+     </div>
+

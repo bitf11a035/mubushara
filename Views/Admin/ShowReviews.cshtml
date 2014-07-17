@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "AdminHome";
+Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section tab 
+{
+    <ul class="menu">
+                         <li><a href="/Admin/AdminHome" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Admin/AddProduct" class="nav2 style4">Add Products</a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Admin/Gallery" class="nav2 style4">Gallery</a></li>                        
+                         <li class="divider"></li>        
+                         <li><a href="/Admin/ShowReviews" class="nav6 style4">View Comments</a></li>                        
+                         <li class="divider"></li>                         
+                         <li><a href="/Account/Logout" class="nav4 style4">Logout</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+
+}
+@section left
+{
+    <div class="left_content">
+    <div class="title_box">Selling Reports</div>
+    
+        <ul class="left_menu">
+        <li class="even"><a href="#">Today Report</a></li>
+         <li class="odd"><a href="#">Weekly Reports</a></li>
+        </ul> 
+}
+@model NewViews.Models.ReView
+   <div class="center_content">
+       <th><h1>Customer Reviews Are </h1></th>
+       <Table border="5">
+<tr>
+<th>
+<h3>Name</h3>
+</th>
+     
+<th>
+<h3>Email</h3>
+</th>
+     
+<th>
+<h3>Phone</h3>
+</th>
+ <th>
+<h3>Company</h3>
+</th>
+     
+<th>
+<h3>Message</h3>
+</th>
+       @foreach (var msg in ViewBag.Messages)
+       {
+           
+           <tr>
+               <td width="81" height="50"><h3>@msg.Name</h3></td> 
+                <td width="81" height="50"><h3>@msg.Email</h3></td> 
+                 <td width="81" height="50"><h3>@msg.Phone</h3></td> 
+                <td width="81" height="50"><h3>@msg.Company</h3></td> 
+                <td width="81" height="50"><h3>@msg.Message</h3></td> 
+               </tr>
+               
+       }
+
+           </Table>
+</div>
+   
+   	   
+
+   
+   

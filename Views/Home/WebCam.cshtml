@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "WebCam";
+Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@section tab{
+<div id="menu_tab">
+            <div class="left_menu_corner"></div>
+                    <ul class="menu">
+                         <li><a href="/Home/index" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Home/index" class="nav2 style4">Products</a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Account/SignUp" class="nav4 style4">Sign Up</a></li>
+                         <li class="divider"></li>                         
+                         <li><a href="/Home/About" class="nav5 style4">About </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Home/contact" class="nav6 style4">Contact Us</a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Account/Login" class="nav4 style4">Login</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+
+            </div><!-- end of menu tab -->
+    }
+ @section left{
+   <div class="left_content">
+    <div class="title_box">Categories</div>
+    
+       <ul class="left_menu">
+        <li class="even"><a href="/Home/Laptops">Laptop</a></li>
+         <li class="odd"><a href="/Home/WebCam">Webcam</a></li>
+         
+         <li class="even"><a href="/Home/Mobile">Mobile Phones</a></li>
+        </ul> 
+        
+        
+
+}
+            
+@model NewViews.Models.Product
+   <div class="center_content">
+       
+         <h1>WEBCAMS</h1> 
+     
+       @foreach (var product in ViewBag.product)
+       {
+           if (product.Product_Name.Equals("WebCam"))
+           {
+             <div class="prod_box">
+             <div class="top_prod_box"></div>
+              <div class="center_prod_box">            
+                 <div class="product_title"> @product.Product_Name</div>
+                 <div class="product_img"><img src="~/images/@product.Product_Image" alt="" title="" border="0" /></div>
+                 <div class="product_comapny"><h3>Company </h3> @product.Product_Company</div> 
+                <div class="prod_price"><span class="reduce"></span> <span class="price"><h3>Price </h3> @product.Product_Price</span></div>                        
+                 <div class="prod_quantity"><span class="reduce"></span><h3>Quantity </h3> <span class="quantity">@product.Product_Quantity</span></div>                        
+                  <div class="prod_color"><span class="reduce"></span> <span class="color"> <h3>Color</h3>@product.Product_Color</span></div>                        
+        </div>
+          
+            <div class="bottom_prod_box"></div>             
+            <div class="prod_details_tab">
+             &nbsp &nbsp &nbsp &nbsp<b>@Html.ActionLink("Back To Home", "index")</b>
+        </div>
+   </div>
+       }
+       }
+</div>
+        @section cartTab{
+        <div class="right_content">
+   		<div class="shopping_cart">
+        	<div class="cart_title style5">Shopping cart</div>
+            
+            <div class="cart_details">
+            <h2>View Cart</h2>
+                 <br />
+           @* <span class="border_cart"></span>
+            Total: <span class="price">350$</span>*@
+           </div>
+            
+            <div class="cart_icon"><a href="/Account/Login" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="~/images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+        
+        </div>
+}
+

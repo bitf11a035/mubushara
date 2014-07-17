@@ -1,0 +1,87 @@
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section tab 
+{
+    <ul class="menu">
+                         <li><a href="/Admin/AdminHome" class="nav1 style4">  Home </a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Admin/AddProduct" class="nav2 style4">Add Products</a></li>
+                         <li class="divider"></li>
+                         <li><a href="/Admin/Gallery" class="nav2 style4">Gallery</a></li>                        
+                         <li class="divider"></li>        
+                         <li><a href="/Admin/ShowReviews" class="nav6 style4">View Comments</a></li>                        
+                         <li class="divider"></li>                         
+                         <li><a href="/Account/Logout" class="nav4 style4">Logout</a></li>
+                         <li class="divider"></li>
+                    </ul>
+
+             <div class="right_menu_corner"></div>
+
+}
+@section left
+{
+    <div class="left_content">
+    <div class="title_box">Selling Reports</div>
+    
+        <ul class="left_menu">
+        <li class="even"><a href="#">Today Report</a></li>
+         <li class="odd"><a href="#">Weekly Reports</a></li>
+        </ul> 
+}
+@model NewViews.Models.Product
+
+      
+   <div class="center_content">
+       
+   <h2>Add New Item</h2>
+<form action="/Admin/AddProductDB" method="post" enctype="multipart/form-data">
+
+      <table width="500" border="0">
+  <tr>
+      <tr>
+    <th width="153" height="50" scope="row">      <h3>Upload Image</h3></th>
+    <td width="252" height="50" ><input type="file" name="file"/></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+    <th width="153" height="50" scope="row">
+      <h3>Product Category</h3>
+</th>
+    <td  width="252" height="50" ><select id="category" name="category">
+              <option  value="Laptop">Laptop</option>
+              <option  value="WebCam">WebCam</option>
+              <option  value="Mobile">Mobile</option>
+              </select></td>
+    <td  width="81" height="50" >&nbsp;</td>
+  </tr>
+  <tr>
+    <th width="153" height="50" scope="row">      <h3>Product Company</h3></th>
+    <td width="252" height="50" ><input type="text" name="p_company" id="p_company" /></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+  <tr>
+    <th width="153" height="50" scope="row">      <h3>Price</h3></th>
+    <td width="252" height="50" ><input type="text" name="p_price" id="p_price" /></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+  <tr>
+    <th width="153" height="50" scope="row">      <h3>Quantity</h3></th>
+    <td width="252" height="50" ><input type="text" name="p_quantity" id="p_quantity" /></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+   <tr>
+    <th width="153" height="50" scope="row">      <h3>Color</h3></th>
+    <td width="252" height="50" ><input type="text" name="p_color" id="p_color" /></td>
+    <td width="81" height="50" >&nbsp;</td>
+  </tr>
+             <td><input type="submit" name="addbutton" value="Add Item" /></td>
+  </tr>
+</table>
+</form>
+    </div> <!-- end of templatmeo_content -->
+
+
+
+
+   
